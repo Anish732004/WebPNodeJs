@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <title>iWorld</title>
+    <link rel = "stylesheet" href = "/css/Style.css">
+    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+</head>
+<body>
+    <div class = "container">
+        <section class = "section-1">
+        </section>
+    </div>
+    <script>     
+        async function loadLandingPage()
+        {
+            let request = new Request("/elements.json")
+            let response = await fetch(request)
+            let json_obj = await response.json()
+
+            const C = new LandingPage(json_obj);
+            C.Load();
+        }
+
+        class LandingPage
+        {
+            constructor(json_obj)
+            {
+                this.json_obj = json_obj;
+            }
+
+            Load()
+            {
+                const {json_obj} = this;
+                this.loadLogo(json_obj);
+                this.loadNavBar(json_obj);
+                this.loadBox(json_obj);
+                this.loadText(json_obj);
+            }
+        
+            loadLogo(P_json_obj)
+            {
+                let s1 = document.querySelector(".section-1")
+                
+                let a = document.createElement("a")
+                a.className = "logo"
+
+                let i = document.createElement("i")
+                i.className = "fa-brands fa-apple"
+
+                a.appendChild(i)
+
+                s1.appendChild(a)
+            }
+
+            loadNavBar(P_json_obj)
+            {
+                let s1 = document.querySelector(".section-1")
+                let nav = P_json_obj['av']
+                
+                let navbar = document.createElement("nav")
+                navbar.className = "navbar"
+
+                for(let i of nav)
+                {
+                    let navbar_link = document.createElement("a")
+                    navbar_link.className = "navbar-link"
+
+                    navbar_link.innerHTML = i.link
+                    navbar_link.href = i.href
+
+                    navbar.appendChild(navbar_link)
+                }
+                s1.appendChild(navbar)
+            }
+
+            loadBox(P_json_obj)
+            {
+                let s1 = document.querySelector(".section-1")
+                
+                let cube_wrapper = document.createElement("div")
+                cube_wrapper.className = "cube-wrapper"
+
+                let cube = document.createElement("div")
+                cube.className = "cube"
+
+                let front = document.createElement("div")
+                front.className = "front"
+
+                let img = document.createElement("img")
+                img.src = P_json_obj['img']
+
+                front.appendChild(img)
+
+                let back = document.createElement("div")
+                back.className = "back"
+
+                cube.appendChild(front)
+                cube.appendChild(back)
+
+                cube_wrapper.appendChild(cube)
+                s1.appendChild(cube_wrapper)
+            }
+
+            loadText(P_json_obj)
+            {
+                
+                let s1 = document.querySelector(".section-1")
+                let banner = document.createElement("div")
+                banner.className = "section-1-banner center"
+                
+                let h1 = document.createElement("h1")
+                h1.innerHTML = P_json_obj['h1']
+                
+                let p = document.createElement("p")
+                p.innerHTML = P_json_obj['p1']
+                
+                let span = document.createElement("span")
+                span.innerHTML = P_json_obj['span1']
+
+                let button = document.createElement("button")
+                button.innerHTML = "Buy Now"
+
+                banner.appendChild(h1)
+                banner.appendChild(p)
+                banner.appendChild(span)
+                banner.appendChild(button)
+
+                s1.appendChild(banner)
+            }
+        }
+
+        loadLandingPage()
+    </script>
+</body>
+</html>

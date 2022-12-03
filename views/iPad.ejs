@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <title>iWorld</title>
+    <link rel = "stylesheet" href = "css/Style.css">
+    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+</head>
+<body>
+    <div class = "container">
+        <section class = "section-3">
+        </section>
+    </div>
+    <script>
+        async function loadiPadPage()
+        {
+            let request = new Request("elements.json")
+            let response = await fetch(request)
+            let json_obj = await response.json()
+
+            const C = new iPad(json_obj);
+            C.Load();   
+        }
+
+        class iPad
+        {
+            constructor(json_obj)
+            {
+                this.json_obj = json_obj;
+            }
+
+            Load()
+            {
+                const {json_obj} = this;
+                this.loadLogo(json_obj);
+                this.loadImage(json_obj);
+            }
+
+            loadLogo(P_json_obj)
+            {
+                let s3 = document.querySelector(".section-3")
+                
+                let a = document.createElement("a")
+                a.href = "/"
+                a.className = "logo"
+
+                let i = document.createElement("i")
+                i.className = "fa-brands fa-apple"
+
+                a.appendChild(i)
+
+                s3.appendChild(a)
+            }
+
+            loadImage(P_json_obj)
+            {
+                let s3 = document.querySelector(".section-3")
+                let imgc = P_json_obj['Imgc']
+
+                let todo = document.createElement("div")
+                todo.className = "todo" 
+                
+                let imgcontain = document.createElement("div")
+                imgcontain.className = "img-container2"
+                imgcontain.style.textAlign = "center"
+
+                let img = document.createElement("img")     
+                img.src = P_json_obj['img15']
+                img.style.width = "93%" 
+                img.style.marginTop = "55px" 
+                img.style.paddingBottom = "15px"
+                    
+                let span = document.createElement("span")
+                span.style.fontSize = "25px"
+                span.innerHTML = P_json_obj['span15']
+
+                imgcontain.appendChild(img)
+                imgcontain.appendChild(span)
+
+                todo.appendChild(imgcontain)
+
+                for (let i of imgc)
+                {
+                    let imgcontain = document.createElement("div")
+                    imgcontain.className = "img-container2"
+                    imgcontain.style.textAlign = "center"
+
+                    let img = document.createElement("img")
+                    img.src = i.img1
+                    img.style.width = "93%" 
+                    img.style.marginTop = "115px" 
+                    img.style.paddingBottom = "15px"
+                    
+                    let span = document.createElement("span")
+                    span.style.fontSize = "25px"
+                    span.innerHTML = i.span
+
+                    imgcontain.appendChild(img)
+                    imgcontain.appendChild(span)
+
+                    todo.appendChild(imgcontain)
+                }
+                s3.appendChild(todo)
+            }
+        }
+
+        loadiPadPage()
+    </script>
+</body>
+</html>

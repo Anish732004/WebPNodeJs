@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    <title>iWorld</title>
+    <link rel = "stylesheet" href = "/css/Style.css">
+    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+</head>
+<body>
+    <div class = "container">
+        <section class = "section-2 center">
+        </section>
+    </div>
+    <script>     
+        async function loadMacBookPage()
+        {
+            let request = new Request("/elements.json")
+            let response = await fetch(request)
+            let json_obj = await response.json()
+
+            const C = new MacBook(json_obj);
+            C.Load();        
+        }
+
+        class MacBook
+        {
+            constructor(json_obj)
+            {
+                this.json_obj = json_obj;
+                console.log("hello")
+            }
+
+            Load()
+            {
+                const {json_obj} = this;
+                this.loadLogo(json_obj);
+                this.loadHeading(json_obj);
+                this.loadMacBook(json_obj);
+                this.loadInfo(json_obj);
+            }
+
+            loadLogo(P_json_obj)
+            {
+                let s2 = document.querySelector(".section-2")
+                
+                let a = document.createElement("a")
+                a.href = "/"
+                a.className = "logo"
+
+                let i = document.createElement("i")
+                i.className = "fa-brands fa-apple"
+
+                a.appendChild(i)
+
+                s2.appendChild(a)
+            }
+
+            loadHeading(P_json_obj)
+            {
+                let s2 = document.querySelector(".section-2")
+
+                let h1 = document.createElement("h1")
+                h1.className = "section-2-heading"
+                h1.innerHTML = P_json_obj['head1']
+
+                s2.appendChild(h1)
+            }
+
+            loadMacBook(P_json_obj)
+            {
+                let s2 = document.querySelector(".section-2")
+                
+                let content = document.createElement("div")
+                content.className = "section-2-content center"
+
+                let img1 = document.createElement("img")
+                img1.src = P_json_obj['img1']
+            
+                let img2 = document.createElement("img")
+                img2.src = P_json_obj['img2']
+
+                let loading = document.createElement("div")
+                loading.className = "loading"
+                loading.style.backgroundImage = "url('images/Monterey.png')"
+
+                content.appendChild(img1)
+                content.appendChild(img2)
+                content.appendChild(loading)
+
+                s2.appendChild(content)
+            }
+
+            loadInfo(P_json_obj)
+            {
+                let s2 = document.querySelector(".section-2")
+
+                let info = document.createElement("div")
+                info.className = "macbook-info" 
+                
+                let head2 = document.createElement("h2")
+                head2.className = "macbook-heading"
+                head2.innerHTML = P_json_obj['head2']
+
+                let p2 = document.createElement("p")
+                p2.className = "macbook-price"
+
+                let span2 = document.createElement("span")
+                span2.innerHTML = P_json_obj['span2']
+
+                let i = document.createElement("i")
+                i.className = "fa-solid fa-indian-rupee-sign"
+
+                let span3 = document.createElement("span")
+                span3.innerHTML = P_json_obj['span3']
+
+                p2.appendChild(span2)
+                p2.appendChild(i)
+                p2.appendChild(span3)
+                            
+                info.appendChild(head2)
+                info.appendChild(p2)
+            
+                s2.appendChild(info)
+            }
+        }
+
+        loadMacBookPage()
+    </script>    
+</body>
+</html>

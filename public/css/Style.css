@@ -1,0 +1,565 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* Common Styles */
+*
+{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   list-style-type: none;
+   outline: none;
+   text-decoration: none;
+   font-family:"Work Sans", sans-serif;
+}
+
+html
+{
+    font-size: 62.5%;
+}
+
+:root
+{
+    --primary-color: #6edae6;
+    --white-color: #fff;
+    --black-color: #000;
+}
+
+.center
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo
+{
+    position: absolute;
+    top: 1rem;
+    left: 3rem;
+    font-size: 10rem;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.todo
+{
+    animation: fadeIn 4s;  
+}
+
+@keyframes fadeIn 
+{
+    0% 
+    { 
+        opacity: 0; 
+    }
+    100% 
+    { 
+        opacity: 1; 
+    }
+}
+/* End of Common Styles */
+
+/* Section 1 */
+.section-1
+    {
+        width: 100%;
+        height: 100vh;
+        background-image: url("BGImg1.jpg");
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        clip-path: polygon(100% 0, 100% 97.5%, 38% 100%, 0 100%, 0 0);
+        position: relative;
+    }
+
+.navbar-link
+{
+    font-size: 2rem;
+    display: inline-block;
+    margin: 0 3rem;
+    color: var(--black-color);
+    transition: transform 0.5s;
+}
+
+.navbar-link:hover
+{
+    transform: scale(1.5);
+}
+/* End of Navbar */
+
+/* Cube */
+.cube-wrapper
+{
+    perspective: 100rem;
+    animation: fadeIn 4.5s;
+}
+
+.cube
+{
+    width: 30rem;
+    height: 55rem;
+    transform-style: preserve-3d;
+    transform: rotateY(45deg);
+}
+
+.front,
+.back
+{
+    width: 100%;
+    height: 100%;
+    background-color: #0E0E10;
+    position: absolute;
+    transform-style: preserve-3d;
+    box-shadow: inset .1rem .1rem .1rem #353839, inset -.1rem -.1rem .1rem #353839;
+}
+.front
+{
+    padding: 2.5rem;
+    transform: translateZ(5rem);
+}
+
+.front::before,
+.front::after
+{
+    content: "";
+    width: 100%;
+    height: 10rem;
+    background-color: #0E0E10;
+    position: absolute;
+    box-shadow: inset .1rem .1rem .1rem #353839, inset -.1rem -.1rem .1rem #353839;
+}
+
+.front::before
+{
+    top: 0;
+    left: 0;
+    transform: rotateX(-90deg);
+    transform-origin: top;
+}
+
+.front::after
+{
+    bottom: 0;
+    left: 0;
+    transform: rotateX(90deg);
+    transform-origin: bottom;
+}
+
+.front img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.back
+{
+    transform: translateZ(-5rem);
+}
+
+.back::before,
+.back::after
+{
+    content: "iPhone";
+    color: #5865f2;
+    width: 10rem;
+    height: 100%;
+    background-color: #0E0E10;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 300;
+    box-shadow: inset .1rem .1rem .1rem #353839, inset -.1rem -.1rem .1rem #353839;
+}
+
+.back::before
+{
+    top: 0;
+    left: 0;
+    transform: rotateY(-90deg);
+    transform-origin: left;
+}
+
+.back::after
+{
+    top: 0;
+    right: 0;
+    transform: rotateY(90deg);
+    transform-origin: right;
+}
+
+.back i
+{
+    color: #5865f2;
+    font-size: 12rem;
+    text-shadow: .1rem .1rem .2rem #414A4C, -.1rem -.1rem .2rem #414A4C;
+    transform: rotateY(180deg);
+}
+/* End of Cube */
+
+/* Banner */
+.section-1-banner
+{
+    flex-direction: column;
+    animation: fadeIn 4.5s;
+}
+
+.section-1-banner h1
+{
+    font-size: 13rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+.section-1-banner p
+{
+    font-size: 4rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    margin-top: 6rem;
+    margin-bottom: 4rem;
+}
+
+.section-1-banner span
+{
+    font-size: 3rem;
+    margin-bottom: 5rem;
+    letter-spacing: 0.1rem;
+}
+
+.section-1-banner button
+{
+    padding: 2rem 4rem;
+    font-size: 2rem;
+    background-color: var(--black-color);
+    color: var(--primary-color);
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    clip-path: polygon(
+        50% 0,
+        81% 5%,
+        100% 0,
+        100% 100%,
+        80% 95%,
+        50% 100%,
+        20% 95%,
+        0 100%,
+        0 0,
+        23% 5%
+    );
+    transition: clip-path 0.5s;
+}
+
+.section-1-banner button:hover
+{
+    clip-path: polygon(
+        40% 15%,
+        77% 15%,
+        100% 10%,
+        100% 90%,
+        75% 85%,
+        40% 85%,
+        30% 100%,
+        0 50%,
+        0 50%,
+        30% 0
+    );
+}
+/* End of Banner */
+/* End of Section 1 */
+
+/* Section 2 */
+.section-2
+{
+    width: 100%;
+    height: 100vh;
+    background-image: url("BGImg2.jpg");
+    background-size: cover;
+    clip-path: polygon(100% 0, 100% 97.5%, 38% 100%, 0 100%, 0 0);
+    flex-direction: column;
+    padding: 15rem 0;
+}
+
+/* Section 2 Heading */
+.section-2-heading
+{
+    font-size: 7rem;
+    font-weight: 200;
+    color: #5865f2;
+    margin-bottom: 10rem;
+}
+/* End of Section 2 Heading */
+
+/* Section 2 Content */
+.section-2-content
+{
+    width: 80%;
+    flex-direction: column;
+    perspective: 1000rem;
+    position: relative;
+    animation: fadeIn 4s; 
+}
+.section-2-content img
+{
+    width: inherit;
+}
+
+.loading
+{
+    position: absolute;
+    top: 5%;
+    width: 60%;
+    height: 85%;
+    background-image: url("Monterey.png");
+    z-index: -1;
+}
+/* End of Section 2 Content */
+
+/* Section 2 Info */
+.macbook-info
+{
+    position: absolute;
+    width: 70rem;
+    margin-top: 15rem;
+    text-align: center;
+    animation: fadeIn 4s;
+}
+
+.macbook-heading
+{
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: .1rem;
+    color: var(--primary-color);
+    margin: 3rem 0;
+}
+
+.macbook-price
+{
+    font-size: 2.5rem;
+    font-weight: 200;
+    margin: 3rem 0;
+}
+
+.macbook-btn
+{
+    width: 20rem;
+    height: 5rem;
+    background-color: var(--black-color);
+    color: var(--primary-color);
+    border: none;
+    border-radius: .5rem;
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: .1rem;
+    cursor: pointer;
+}
+/* End of Section 2 Info */
+/* End of Section 2 */
+
+/* Section 3 */
+.section-3 
+{
+    width: 100%;
+    height: 100vh;
+    background-image: url("BGImg3.jpg");
+    background-size: cover;
+    clip-path: polygon(100% 0, 100% 97.5%, 38% 100%, 0 100%, 0 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.img-container2
+{ 
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+    margin-top: 70px;
+}
+
+.ipad-btns
+{
+    width:10%;
+    margin-left:45%;
+    margin-top: 45%;
+    margin-right:50%;
+    display: flex;
+}
+
+.ipad-btn
+{
+    width: 20rem;
+    height: 5rem;
+    background-color: var(--black-color);
+    color: var(--primary-color);
+    border: none;
+    border-radius: .5rem;
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: .1rem;
+    cursor: pointer;
+}
+/* End of Section 3 */
+
+/* Section 4 */
+.section-4
+{
+    width: 100%;
+    height: 100vh;
+    background-image: url("BGImg4.jpg");
+    background-size: cover;
+    clip-path: polygon(100% 0, 100% 97.5%, 38% 100%, 0 100%, 0 0);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+/* Navbar */
+.navbar
+{
+    position: absolute;
+    top: 3rem;
+    right: 2.75%;
+}
+
+.navbar-link
+{
+    font-size: 2rem;
+    display: inline-block;
+    margin: 0 3rem;
+    color: #000000;
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+.navbar-link:hover
+{
+    transform: scale(1.5);
+}
+/* End of Navbar */
+
+/* Image and Animation */
+.img-container 
+{
+    float: left;
+    width: 25%;
+    padding: 5px;
+}
+
+.ibutton1
+{
+    width:100%;
+    margin-left:48.5%;
+    margin-right:50%;
+    display: flex;
+}    
+
+.ibutton2
+{
+    width: 100%;
+    margin-left: 48.5%;
+    margin-right: 50%;
+    display: flex;
+}
+
+.ibutton3
+{
+    width:100%;
+    margin-left:48.5%;
+    margin-right:50%;
+    display: flex;
+}
+
+.btn
+{
+    width: 6rem;
+    height: 6rem;
+    background-image: linear-gradient(to right, rgb(51,51,51) 60%, rgb(82,82,82));
+    border-radius: 50%;
+    position: relative;
+}
+
+.btn::after
+{
+    content: "";
+    width: 50%;
+    height: 50%;
+    display: block;
+    border: .1rem solid #6edae6;
+    border-radius: 1rem;
+}
+
+.btn span
+{
+    position: absolute;
+    top: -2.5rem;
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    color: #5865f2;
+    width: max-content;
+    transform: scale(0);
+    transition: transform .5s;
+}
+
+.btn:hover span
+{
+    transform: scale(1);
+}
+/* End of Image and Animation */
+/* End of Section 4 */
+
+/* Section 5 */ 
+.section-5 
+{
+    width: 100%;
+    height: 100vh;
+    background-image: url("BGImg5.jpg");
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+/* Image and Animation */
+.img-container1
+{
+    float: left;
+    width: 50%;
+    padding: 5px;
+}
+
+.airpods-buttons 
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    margin: auto;
+}
+
+.airpods-btn 
+{
+    width: 180px;
+    height: 64px;
+    background-color: var(--black-color);
+    border: none;
+    border-radius: 10px;
+    color: var(--primary-color);
+    font-size: 25px;
+    cursor: pointer;
+}
+/* End of Image and Animation */
+/* End of Section 5 */
+

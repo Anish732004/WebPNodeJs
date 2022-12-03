@@ -1,0 +1,146 @@
+{
+    "av":[
+    {
+    "link":"MacBook",
+    "href":"MacBook.html"
+    },
+    
+    {
+    "link":"iPad",
+    "href":"iPad.html"
+    }, 
+    
+    {
+    "link":"iPhone",
+    "href":"iPhone14.html"
+    }, 
+    
+    {
+    "link":"AirPods",
+    "href":"AirPods.html"
+    }
+    ],
+
+    "img":"images/iphone.png",
+    "img1":"images/macbook-screen.png",
+    "img2":"images/macbook-keyboard.png",
+    "h1":"&#8592; Best Gift",
+    "p1":"Creativity is just connecting things.",
+    "span1":"- Steve Jobs",
+    "head1":"MacBook Pro 13-in. (M2, 2022)",
+    "head2":"Pro anywhere.",
+    "span2":"From ",
+    "span3":" 129900.00",
+
+    "av1":[
+    {
+    "link":"iPhone 14",
+    "href":"iPhone14.html"
+    },        
+        
+    {
+    "link":"iPhone 12",
+    "href":"iPhone12.html"
+    }
+    ],
+
+    "Imga":[
+    {
+        "img1":"images/iPhone13ProMaxGraphite.png",
+        "span":"iPhone 13 Pro Max"
+    },
+
+    {
+        "img1":"images/iPhone13ProSilver.png",
+        "span":"iPhone 13 Pro"
+    },
+
+    {
+        "img1":"images/iPhone13Blue.png",
+        "span":"iPhone 13"
+    }
+    ],
+        
+    "img4":"images/iPhone13miniRed.png",
+    "span4":"iPhone 13 mini",
+
+    "av2":[
+        {
+        "link":"iPhone 14",
+        "href":"iPhone14.html"
+        },        
+            
+        {
+        "link":"iPhone 13",
+        "href":"iPhone13.html"
+    }
+    ],
+
+    "img5":"images/iPhone12ProMaxSilver.png",
+    "span5":"iPhone 12 Pro Max",
+
+    "img6":"images/iPhone12ProGold.png",
+    "span6":"iPhone 12 Pro",
+
+    "img7":"images/iPhone12Red.png",
+    "span7":"iPhone 12",
+
+    "img8":"images/iPhone12miniBlue.png",
+    "span8":"iPhone 12 mini",
+
+    "LM": "Learn More",
+
+    "av3":[
+        {
+        "link":"iPhone 13",
+        "href":"iPhone13.html"
+        },        
+            
+        {
+        "link":"iPhone 12",
+        "href":"iPhone12.html"
+    }
+    ],
+
+    "img9":"images/iPhone14ProMaxDeepPurple.png",
+    "span9":"iPhone 14 Pro Max",
+
+    "img10":"images/iPhone14ProSpaceBlack.png",
+    "span10":"iPhone 14 Pro",
+
+    "img11":"images/iPhone14PlusBlue.png",
+    "span11":"iPhone 14 Plus",
+
+    "img12":"images/iPhone14Purple.png",
+    "span12":"iPhone 14",
+
+    "Imgb":
+    [
+        {
+            "img1":"images/AirPods3rdGen.png",
+            "span":"AirPods 3rd Gen"
+        },
+        
+        {
+            "img1":"images/AirPodsPro2ndGen.png",
+            "span":"AirPods Pro 2nd Gen"
+        }
+    ],
+
+    "Imgc":
+    [
+        {
+            "img1":"images/iPadPro11in3rdGen.png",
+            "span":"iPad Pro 11-in. (3rd generation)"
+        },
+        
+        {
+            "img1":"images/iPadAir5thGen.png",
+            "span":"iPad Air (5th generation)"
+        }
+    ],
+
+    "img15":"images/iPadPro12.9in5thGen.png",
+    "span15":"iPad Pro 12.9-in. (5th generation)"
+
+}

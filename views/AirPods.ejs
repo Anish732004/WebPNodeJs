@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iWorld</title>
+    <link rel = "stylesheet" href = "css/Style.css">
+    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+</head>
+<body>
+    <div class = "container">
+        <section class = "section-5">
+        </section>
+    </div>
+    <script>
+        async function loadAirPodsPage()
+        {
+            let request = new Request("elements.json")
+            let response = await fetch(request)
+            let json_obj = await response.json()
+
+            const C = new AirPods(json_obj);
+            C.Load();   
+        }
+
+        class AirPods
+        {
+            constructor(json_obj)
+            {
+                this.json_obj = json_obj;
+            }
+
+            Load()
+            {
+                const {json_obj} = this;
+                this.loadLogo(json_obj);
+                this.loadImage(json_obj);
+            }
+
+            loadLogo(P_json_obj)
+            {
+                let s4 = document.querySelector(".section-5")
+                
+                let a = document.createElement("a")
+                a.href = "/"
+                a.className = "logo"
+
+                let i = document.createElement("i")
+                i.className = "fa-brands fa-apple"
+
+                a.appendChild(i)
+
+                s4.appendChild(a)
+            }
+
+            loadImage(P_json_obj)
+            {
+                let s5 = document.querySelector(".section-5")
+                let todo = document.createElement("div")
+                todo.className = "todo"
+
+                let nav = P_json_obj['Imgb']
+
+                for (let i of nav)
+                {
+                    let imgcontain = document.createElement("div")
+                    imgcontain.className = "img-container1"
+                    imgcontain.style.textAlign = "center"
+
+                    let img = document.createElement("img")
+                    img.src = i.img1
+                    img.style.width = "100%"
+
+                    let span = document.createElement("span")
+                    span.innerHTML = i.span
+                    span.style.fontSize = "25px"
+
+                    imgcontain.appendChild(img)
+                    imgcontain.appendChild(span)
+                    
+                    todo.appendChild(imgcontain)
+                }
+                s5.appendChild(todo)
+            }
+        }
+
+        loadAirPodsPage()
+    </script>
+</body>
+</html>

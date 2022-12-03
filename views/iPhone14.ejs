@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+    <title>iWorld</title>
+    <link rel = "stylesheet" href = "/css/Style.css">
+    <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+</head>
+<body>
+    <div class = "container">
+        <section class = "section-4">
+        </section>
+    </div>
+    <script>
+        async function loadiPhone14Page()
+        {
+            let request = new Request("/elements.json")
+            let response = await fetch(request)
+            let json_obj = await response.json()
+
+            const C = new iPhone14(json_obj);
+            C.Load();   
+        }
+
+        class iPhone14
+        {
+            constructor(json_obj)
+            {
+                this.json_obj = json_obj;
+            }
+
+            Load()
+            {
+                const {json_obj} = this;
+                this.loadLogo(json_obj);
+                this.loadNavBar(json_obj);
+                this.loadImage(json_obj);
+            }
+
+            loadLogo(P_json_obj)
+            {
+                let s4 = document.querySelector(".section-4")
+                
+                let a = document.createElement("a")
+                a.href = "/"
+                a.className = "logo"
+
+                let i = document.createElement("i")
+                i.className = "fa-brands fa-apple"
+
+                a.appendChild(i)
+
+                s4.appendChild(a)
+            }
+
+            loadNavBar(P_json_obj)
+            {
+                let s4 = document.querySelector(".section-4")
+                let nav = P_json_obj['av3']
+                
+                let navbar = document.createElement("nav")
+                navbar.className = "navbar"
+
+                for(let i of nav)
+                {
+                    let navbar_link = document.createElement("a")
+                    navbar_link.className = "navbar-link"
+
+                    navbar_link.innerHTML = i.link
+                    navbar_link.href = i.href
+
+                    navbar.appendChild(navbar_link)
+                    
+                }
+                s4.appendChild(navbar)
+            }
+
+            loadImage(P_json_obj)
+            {
+                let s4 = document.querySelector(".section-4")
+
+                let todo = document.createElement("div")
+                todo.className = "todo" 
+
+                let imgcontain = document.createElement("div")
+                imgcontain.className = "img-container"
+                imgcontain.style.textAlign = "center"
+
+                let img = document.createElement("img")
+                img.src = P_json_obj['img9']
+                img.style.width = "85%"
+                img.style.paddingTop = "50.5px" 
+                img.style.paddingBottom = "20px"
+
+                let span = document.createElement("span")
+                span.style.fontSize = "25px"
+                span.innerHTML = P_json_obj['span9']
+
+                imgcontain.appendChild(img)
+                imgcontain.appendChild(span)
+
+                todo.appendChild(imgcontain)
+
+                let imgcontain1 = document.createElement("div")
+                imgcontain1.className = "img-container"
+                imgcontain1.style.textAlign = "center"
+
+                let img1 = document.createElement("img")
+                img1.src = P_json_obj['img10']
+                img1.style.width = "85%"
+                img1.style.paddingTop = "37px" 
+                img1.style.paddingBottom = "22px"
+
+                let span1 = document.createElement("span")
+                span1.style.fontSize = "25px"
+                span1.innerHTML = P_json_obj['span10']
+
+                imgcontain1.appendChild(img1)
+                imgcontain1.appendChild(span1)
+
+                todo.appendChild(imgcontain1)
+
+                let imgcontain2 = document.createElement("div")
+                imgcontain2.className = "img-container"
+                imgcontain2.style.textAlign = "center"
+
+                let img2 = document.createElement("img")
+                img2.src = P_json_obj['img11']
+                img2.style.width = "85%"
+                img2.style.paddingTop = "62.5px" 
+                img2.style.paddingBottom = "17px"
+
+                let span2 = document.createElement("span")
+                span2.style.fontSize = "25px"
+                span2.innerHTML = P_json_obj['span11']
+
+                imgcontain2.appendChild(img2)
+                imgcontain2.appendChild(span2)
+
+                todo.appendChild(imgcontain2)
+
+                let imgcontain3 = document.createElement("div")
+                imgcontain3.className = "img-container"
+                imgcontain3.style.textAlign = "center"
+
+                let img3 = document.createElement("img")
+                img3.src = P_json_obj['img12']
+                img3.style.width = "85%"
+                img3.style.paddingTop = "30px" 
+                img3.style.paddingBottom = "0.1px"
+
+                let span3 = document.createElement("span")
+                span3.style.fontSize = "25px"
+                span3.innerHTML = P_json_obj['span12']
+
+                imgcontain3.appendChild(img3)
+                imgcontain3.appendChild(span3)
+
+                todo.appendChild(imgcontain3)
+
+                s4.appendChild(todo)
+            }
+        }
+
+        loadiPhone14Page()
+    </script>
+</body>
+</html> 
